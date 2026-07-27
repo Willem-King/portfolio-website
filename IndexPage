@@ -1,158 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Virtual CV</title>
+    <style>
+        /* --- General Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <title>William King | Software Developer</title>
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling when clicking tab links */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            line-height: 1.6;
+            padding-top: 70px; /* Offset for fixed top navbar */
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        /* --- Top Navigation Bar / Tabs --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e293b;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        nav {
+            display: flex;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        nav a {
+            color: #f8fafc;
+            text-decoration: none;
+            padding: 18px 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s, color 0.3s;
+            border-bottom: 3px solid transparent;
+        }
 
+        nav a:hover {
+            background-color: #334155;
+            border-bottom: 3px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* --- Profile Header --- */
+        .profile-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .profile-card h1 {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .profile-card p.subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .contact-info a {
+            color: #0284c7;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- CV Sections --- */
+        section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            scroll-margin-top: 80px; /* Prevents header from covering section top */
+        }
+
+        section h2 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Content Layout --- */
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .item-sub {
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        ul.skills-list {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        ul.skills-list li {
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        ul.bullet-list {
+            padding-left: 20px;
+        }
+
+        ul.bullet-list li {
+            margin-bottom: 6px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            nav a {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+    <header>
+        <nav>
+            <a href="#Home">Home</a>
+            <a href="#Resume">Resume</a>
+            <a href="#Skills">Skills</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#About Me">About Me</a>
+            <a href="#Contact Page">Contact Page</a>
+        </nav>
+    </header>
 
-<header>
+    <div class="container">
 
-    <nav class="navbar">
-
-        <div class="logo">
-
-            <span>WK</span> Portfolio
-
+        <div class="profile-card">
+            <h1>Willem King</h1>
+            <p class="subtitle">Software Developer / Computer Scientist</p>
+            <div class="contact-info">
+                <span>📧 kingwillem883@gmail.com</span>
+                <span>📞 +27 84 514 6286</span>
+                <span>📍 South Africa</span>
+                <span>🔗 <a href="https://www.linkedin.com/in/wj-king-602196363/?isSelfProfile=true" target="_blank">LinkedIn Profile</a></span>
+            </div>
         </div>
 
-        <ul class="nav-links">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a passionate Information Technology student at North-West University with a strong interest in software development, web technologies and solving real-world problems through technology.
 
-            <li><a href="#home">Home</a></li>
+			   Throughout my studies I have gained experience in Java, C++, C#, SQL, CSS and Python while completing various academic and personal projects.
 
-            <li><a href="#about">About</a></li>
+			   I thrive in team environments, enjoy learning new technologies and constantly challenge myself to improve. I am currently seeking internship and graduate opportunities where I can grow as a developer and make a meaningful impact.
+			   </p>
+        </section>
 
-            <li><a href="#education">Education</a></li>
 
-            <li><a href="#skills">Skills</a></li>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">BSc in Information Technology / Computer Science</span>
+                    <span class="item-date">2024 – Present</span>
+                </div>
+                <div class="item-sub">North-West University</div>
+                <section id="education">
+		<h2>Education</h2>
+		<div class="item">
+			<div class="item-header">
+				<span class="item-title">BSc in Information Technology</span>
+				<span class="item-date">2024 – Present</span>
+			</div>
+			<div class="item-sub">North-West University (NWU) — 3rd Year</div>
+			<ul class="bullet-list">
+				<li>Key Modules (3rd Year): Decision Support Systems (CMPG 312), Artificial Intelligence, Databases, and Software Engineering.</li>
+				<li>Core Focus: Operations Research, Linear Programming & Optimization, Advanced SQL & Relational Database Design.</li>
+			</ul>
+		</div>
+	</section>
+            </div>
+        </section>
 
-            <li><a href="#projects">Projects</a></li>
+	<section id="experience">
+		<h2>Experience</h2>
 
-            <li><a href="#contact">Contact</a></li>
+		<div class="item">
+			<div class="item-header">
+				<span class="item-title">Student Software Developer</span>
+				<span class="item-date">Feb 2024 – Present</span>
+			</div>
+			<div class="item-sub">On-site</div>
+			<ul class="bullet-list">
+				<li>Developing desktop and web applications using Java, C++, C#, and Python.</li>
+				<li>Designing and managing databases using SQL.</li>
+			</ul>
+		</div>
 
-        </ul>
+		<div class="item" style="margin-top: 20px;">
+			<div class="item-header">
+				<span class="item-title">Student Assistant - C++</span>
+				<span class="item-date">Jul 2025 – Dec 2025</span>
+			</div>
+			<ul class="bullet-list">
+				<li>Supported students during lectures and practical sessions.</li>
+				<li>Assisted with marking of assignments and assessments.</li>
+			</ul>
+		</div>
 
-        <button id="darkModeBtn">
+		<div class="item" style="margin-top: 20px;">
+			<div class="item-header">
+				<span class="item-title">Student Assistant - Java</span>
+				<span class="item-date">Feb 2026 – Jun 2026</span>
+			</div>
+			<ul class="bullet-list">
+				<li>Assisting students during lectures and practical sessions.</li>
+				<li>Marking assignments and providing constructive feedback.</li>
+			</ul>
+		</div>
 
-            <i class="fas fa-moon"></i>
+		<div class="item" style="margin-top: 20px;">
+			<div class="item-header">
+				<span class="item-title">IT Tutor</span>
+				<span class="item-date">Apr 2026 – Present</span>
+			</div>
+			<div class="item-sub">Three Rivers Learning Academy · Part-time (Three Rivers, Gauteng, South Africa)</div>
+			<ul class="bullet-list">
+				<li>Tutoring grade 10 - 12 IT students in programming and problem-solving.</li>
+				<li>Preparing students for tests and examinations.</li>
+				<li>Guiding students through debugging techniques and core IT concepts.</li>
+			</ul>
+		</div>
 
-        </button>
+		<div class="item" style="margin-top: 20px;">
+			<div class="item-header">
+				<span class="item-title">Student Assistant - C++</span>
+				<span class="item-date">Jul 2026 – Present</span>
+			</div>
+			<ul class="bullet-list">
+				<li>Assisting students during lectures and practical sessions.</li>
+				<li>Marking assignments and providing constructive feedback.</li>
+			</ul>
+		</div>
+	</section>
 
-    </nav>
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Delphi / Object Pascal</li>
+                <li>Java</li>
+                <li>SQL & ERD Modeling</li>
+                <li>Linear Programming (MILP)</li>
+                <li>HTML5 & CSS3</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+		
+	<section id="projects">
+		<h2>Featured Projects</h2>
 
-</header>
-
-<!-- ================= HERO SECTION ================= -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <p class="welcome-text">
-            HELLO, MY NAME IS
-        </p>
-
-        <h1>
-
-            William <span>King</span>
-
-        </h1>
-
-        <h2>
-
-            Software Developer | IT Student
-
-        </h2>
-
-        <p class="hero-description">
-
-            I am a passionate Information Technology student at
-            North-West University with a strong interest in
-            software development, web technologies,
-            database systems and networking.
-
-            I enjoy building modern applications that solve
-            real-world problems while continuously learning
-            new technologies.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="resume.pdf" class="btn-primary" download>
-
-                <i class="fa-solid fa-download"></i>
-
-                Download CV
-
-            </a>
-
-            <a href="#contact" class="btn-secondary">
-
-                Contact Me
-
-            </a>
-
-        </div>
-
-        <div class="social-icons">
-
-            <a href="#" title="GitHub">
-
-                <i class="fab fa-github"></i>
-
-            </a>
-
-            <a href="#" title="LinkedIn">
-
-                <i class="fab fa-linkedin"></i>
-
-            </a>
-
-            <a href="#" title="Email">
-
-                <i class="fas fa-envelope"></i>
-
-            </a>
-
-        </div>
+		<div class="item">
+			<div class="item-header">
+				<span class="item-title">Blue River Zoo Management System</span>
+				<span class="item-date">2026</span>
+			</div>
+			<p>Developed a comprehensive management system supporting multiple user roles (Visitor, Staff, and Admin). Features include visitor ticket management, staff administrative controls, and system-wide data management with secure access levels.</p>
+		</div>
+	</section>
 
     </div>
 
-    <div class="hero-image">
-
-        <img src="images/profile.png" alt="William King">
-
-    </div>
-
-</section>
-
-<!-- Scroll Indicator -->
-
-<div class="scroll-down">
-
-    <i class="fa-solid fa-angles-down"></i>
-
-</div>
-
-<!-- ABOUT SECTION STARTS HERE -->
-<section id="about">
+</body>
+</html>
