@@ -7,10 +7,10 @@ This repository contains my personal portfolio website developed for the CMPG323
 ## Features
 
 - Home
-- About Me
 - Resume
 - Skills
 - Projects
+- About Me
 - Contact Page
 
 ## Technologies Used
