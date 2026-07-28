@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Virtual CV</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Top Navigation Bar --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e293b;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: #f8fafc;
+            text-decoration: none;
+            padding: 18px 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s, color 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a.active, nav a:hover {
+            background-color: #334155;
+            border-bottom: 3px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* --- About Card --- */
+        .about-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 35px 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .about-card h1 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .about-card p {
+            color: #475569;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+        }
+
+        /* --- Highlights / Focus Areas --- */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .highlight-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #0284c7;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box h3 {
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .highlight-box p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            nav a {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="resume.html">Resume</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="about-card">
+            <h1>About Me</h1>
+            
+            <p>
+                I am a driven <strong>3rd-year Bachelor of Science in Information Technology student at North-West University (NWU)</strong> with a strong passion for software engineering, relational database design, and decision support systems.
+            </p>
+
+            <p>
+                My technical journey combines hands-on software development with academic mentorship. Alongside my studies, I work as a <strong>Student Software Developer</strong> building applications across multiple languages including C++, Java, C#, Python, and SQL. I also serve as a <strong>C++ and Java Student Assistant</strong> at NWU and an <strong>IT Tutor</strong> at Three Rivers Learning Academy, where I enjoy guiding high school and university students through core programming concepts, debugging, and computational problem-solving.
+            </p>
+
+            <p>
+                Whether I am engineering multi-role database applications like the <em>Blue River Zoo Management System</em> or formulating mathematical models using Mixed-Integer Linear Programming (MILP) to solve logistical challenges, I focus on building efficient, scalable, and user-friendly software solutions.
+            </p>
+
+            <div class="highlights-grid">
+                <div class="highlight-box">
+                    <h3>💻 Software Development</h3>
+                    <p>Proficient in OOP principles, system design, and building web/desktop applications using C++, Java, C#, Python, and SQL.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>📊 Operations Research & Data</h3>
+                    <p>Experienced in Decision Support Systems (CMPG 312), linear programming optimization models, and relational ERD design.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>🎓 Leadership & Mentorship</h3>
+                    <p>Dedicated to breaking down complex algorithms, marking coursework, and helping peers master core IT concepts.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
