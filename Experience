@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Virtual CV</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Top Navigation Bar --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e293b;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: #f8fafc;
+            text-decoration: none;
+            padding: 18px 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s, color 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a.active, nav a:hover {
+            background-color: #334155;
+            border-bottom: 3px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* --- Experience Main Card --- */
+        .exp-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 35px 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .exp-card h1 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        /* --- Item Layout --- */
+        .item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: #0284c7;
+            font-weight: 600;
+        }
+
+        .item-sub {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        ul.bullet-list {
+            padding-left: 20px;
+        }
+
+        ul.bullet-list li {
+            margin-bottom: 6px;
+            color: #475569;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            nav a {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="resume.html" class="active">Resume</a>           
+			<a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html" class="active">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="exp-card">
+            <h1>Practical Experience</h1>
+
+            <!-- Role 1 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Student Software Developer</span>
+                    <span class="item-date">Feb 2024 – Present</span>
+                </div>
+                <div class="item-sub">On-site</div>
+                <ul class="bullet-list">
+                    <li>Developing desktop and web applications using Java, C++, C#, and Python.</li>
+                    <li>Designing, maintaining, and managing databases using SQL.</li>
+                </ul>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Student Assistant - C++</span>
+                    <span class="item-date">Jul 2025 – Dec 2025</span>
+                </div>
+                <div class="item-sub">North-West University</div>
+                <ul class="bullet-list">
+                    <li>Supported students during lectures and practical programming sessions.</li>
+                    <li>Assisted with marking assignments, practical work, and assessments.</li>
+                </ul>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Student Assistant - Java</span>
+                    <span class="item-date">Feb 2026 – Jun 2026</span>
+                </div>
+                <div class="item-sub">North-West University</div>
+                <ul class="bullet-list">
+                    <li>Assisted students in understanding core Object-Oriented Java programming concepts during practical sessions.</li>
+                    <li>Evaluated student code submissions and provided constructive feedback on code structure and debugging techniques.</li>
+                </ul>
+            </div>
+
+            <!-- Role 4 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">IT Tutor</span>
+                    <span class="item-date">Apr 2026 – Present</span>
+                </div>
+                <div class="item-sub">Three Rivers Learning Academy · Part-time (Three Rivers, Gauteng, South Africa)</div>
+                <ul class="bullet-list">
+                    <li>Tutoring grade 10 - 12 IT students in core programming principles and problem-solving strategies.</li>
+                    <li>Preparing students for upcoming tests and formal examinations.</li>
+                    <li>Guiding students through software debugging techniques and foundational IT concepts.</li>
+                </ul>
+            </div>
+
+            <!-- Role 5 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Student Assistant - C++</span>
+                    <span class="item-date">Jul 2026 – Present</span>
+                </div>
+                <div class="item-sub">North-West University</div>
+                <ul class="bullet-list">
+                    <li>Assisting university students during active C++ lectures and lab practicals.</li>
+                    <li>Grading coursework submissions and delivering targeted feedback to improve student code quality.</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
