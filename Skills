@@ -1,136 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Virtual CV</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
-            padding-top: 70px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- Top Navigation Bar --- */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #1e293b;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        nav a {
-            color: #f8fafc;
-            text-decoration: none;
-            padding: 18px 24px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background-color 0.3s, color 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-
-        nav a.active, nav a:hover {
-            background-color: #334155;
-            border-bottom: 3px solid #38bdf8;
-            color: #38bdf8;
-        }
-
-        /* --- Skills Card --- */
-        .skills-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 35px 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-        }
-
-        .skills-card h1 {
-            font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
-        }
-
-        .skills-intro {
-            color: #64748b;
-            margin-bottom: 25px;
-        }
-
-        .category-title {
-            font-size: 1.15rem;
-            color: #0f172a;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .category-title::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 18px;
-            background-color: #0284c7;
-            border-radius: 2px;
-        }
-
-        /* --- Skill Pills Grid --- */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-pill {
-            background-color: #f8fafc;
-            border: 1px solid #cbd5e1;
-            color: #334155;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.92rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .skill-pill:hover {
-            border-color: #38bdf8;
-            background-color: #f0f9ff;
-            color: #0284c7;
-            transform: translateY(-1px);
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                flex-wrap: wrap;
-            }
-            nav a {
                 padding: 10px 12px;
                 font-size: 0.85rem;
             }
@@ -143,12 +11,12 @@
     <header>
         <nav>
             <a href="index.html">Home</a>
+            <a href="resume.html" class="active">Resume</a>			
             <a href="about.html">About</a>
             <a href="education.html">Education</a>
             <a href="experience.html">Experience</a>
             <a href="skills.html" class="active">Skills</a>
             <a href="projects.html">Projects</a>
-            <a href="resume.html">Resume</a>
         </nav>
     </header>
 
@@ -193,6 +61,10 @@
             <div class="category-title">Tools & Development Environments</div>
             <div class="skills-grid">
                 <span class="skill-pill">Notepad++</span>
+                <span class="skill-pill">Code::Blocks</span>
+                <span class="skill-pill">BlueJ</span>
+                <span class="skill-pill">IDLE (Python)</span>
+                <span class="skill-pill">Delphi</span>
                 <span class="skill-pill">Git & GitHub</span>
                 <span class="skill-pill">Visual Studio / VS Code</span>
                 <span class="skill-pill">SQL Server Management Studio</span>
