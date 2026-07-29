@@ -105,8 +105,8 @@
         .section-subtitle {
             font-size: 1.1rem;
             color: #1e293b;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
             font-weight: 600;
         }
 
@@ -123,7 +123,7 @@
         /* --- Module Grid --- */
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
@@ -133,18 +133,24 @@
             border: 1px solid #e2e8f0;
             border-radius: 6px;
             padding: 15px;
+            transition: border-color 0.2s;
+        }
+
+        .module-card:hover {
+            border-color: #38bdf8;
         }
 
         .module-card h4 {
-            color: #0f172a;
-            font-size: 1rem;
+            color: #0284c7;
+            font-size: 1.05rem;
             margin-bottom: 5px;
         }
 
         .module-card p {
-            color: #64748b;
-            font-size: 0.88rem;
+            color: #475569;
+            font-size: 0.9rem;
             margin: 0;
+            font-weight: 500;
         }
 
         @media (max-width: 600px) {
@@ -188,33 +194,49 @@
             <div class="institution">North-West University (NWU) — 3rd Year</div>
 
             <p style="color: #475569; margin-bottom: 20px;">
-                Currently pursuing a Bachelor of Science in Information Technology, focusing on software engineering principles, decision support systems, linear optimization models, and relational database management.
+                Currently pursuing a Bachelor of Science in Information Technology, focusing on software engineering principles, decision support systems, mathematical optimization models, operating systems, and relational database management.
             </p>
 
             <div class="section-subtitle">Academic Focus & Key Competencies</div>
             <ul class="bullet-list">
                 <li><strong>Operations Research & Optimization:</strong> Formulating linear programming (MILP) models to solve complex logistical and decision-making problems.</li>
                 <li><strong>Relational Database Systems:</strong> Designing database architectures with Crow's Foot ERD modeling, referential integrity constraints, and complex SQL querying.</li>
-                <li><strong>Software Engineering & OOP:</strong> Developing robust software solutions using object-oriented principles across C++, Java, C#, and Python.</li>
+                <li><strong>Software Engineering & Development:</strong> Developing robust software solutions using object-oriented principles across C++, Java, C#, and Python.</li>
             </ul>
 
-            <div class="section-subtitle">Core 3rd Year Modules</div>
+            <div class="section-subtitle">3rd Year Modules (NWU Curriculum)</div>
             <div class="modules-grid">
                 <div class="module-card">
+                    <h4>CMPG 311</h4>
+                    <p>Databases</p>
+                </div>
+                <div class="module-card">
                     <h4>CMPG 312</h4>
-                    <p>Decision Support Systems & Mathematical Optimization</p>
+                    <p>Decision Support Systems 1</p>
                 </div>
                 <div class="module-card">
-                    <h4>Software Engineering</h4>
-                    <p>System Architecture, Design Patterns & Lifecycle Models</p>
+                    <h4>CMPG 313</h4>
+                    <p>Artificial Intelligence</p>
                 </div>
                 <div class="module-card">
-                    <h4>Artificial Intelligence</h4>
-                    <p>Problem Solving, Search Algorithms & Smart Systems</p>
+                    <h4>CMPG 315</h4>
+                    <p>Computer Networks</p>
                 </div>
                 <div class="module-card">
-                    <h4>Advanced Databases</h4>
-                    <p>Database Administration, SQL Querying & Data Modeling</p>
+                    <h4>CMPG 321</h4>
+                    <p>Advanced Databases</p>
+                </div>
+                <div class="module-card">
+                    <h4>CMPG 322</h4>
+                    <p>Decision Support Systems 2</p>
+                </div>
+                <div class="module-card">
+                    <h4>CMPG 323</h4>
+                    <p>IT Development</p>
+                </div>
+                <div class="module-card">
+                    <h4>CMPG 324</h4>
+                    <p>Operating Systems</p>
                 </div>
             </div>
         </div>
