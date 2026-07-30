@@ -408,10 +408,9 @@
             </div>
         </section>
 
-        <!-- Bottom Page Navigation -->
         <div class="page-nav">
             <a href="index.html" class="btn-nav">&larr; Previous: Home</a>
-            <a href="education.html" class="btn-nav">Next: Education &rarr;</a>
+            <a href="about.html" class="btn-nav">Next: ;About &rarr;</a>
         </div>
 
     </div>
