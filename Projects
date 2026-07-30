@@ -25,7 +25,6 @@
             padding: 20px;
         }
 
-        /* --- Top Navigation Bar --- */
         header {
             position: fixed;
             top: 0;
@@ -59,7 +58,6 @@
             color: #38bdf8;
         }
 
-        /* --- Main Header --- */
         .page-header {
             background-color: #ffffff;
             border-radius: 8px;
@@ -76,7 +74,6 @@
             margin-bottom: 10px;
         }
 
-        /* --- Project Cards --- */
         .project-card {
             background-color: #ffffff;
             border-radius: 8px;
@@ -129,7 +126,6 @@
             font-size: 0.95rem;
         }
 
-        /* --- Tech Badges --- */
         .tech-stack {
             display: flex;
             gap: 8px;
@@ -146,6 +142,57 @@
             border: 1px solid #e2e8f0;
         }
 
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn-nav {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0284c7;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-nav:hover {
+            background-color: #0369a1;
+        }
+
+        .btn-home {
+            background-color: #1e293b;
+        }
+
+        .btn-home:hover {
+            background-color: #334155;
+        }
+
+        @media print {
+            header, .page-nav {
+                display: none;
+            }
+            body {
+                padding-top: 0;
+                background-color: #ffffff;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .project-card, .page-header {
+                box-shadow: none;
+                border: none;
+                padding: 15px 0;
+            }
+        }
+
         @media (max-width: 600px) {
             nav {
                 flex-wrap: wrap;
@@ -154,17 +201,24 @@
                 padding: 10px 12px;
                 font-size: 0.85rem;
             }
+            .page-nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
     <header>
         <nav>
             <a href="index.html">Home</a>
-            <a href="resume.html" class="active">Resume</a> 
-			<a href="about.html">About</a>
+            <a href="resume.html">Resume</a> 
+            <a href="about.html">About</a>
             <a href="education.html">Education</a>
             <a href="experience.html">Experience</a>
             <a href="skills.html">Skills</a>
@@ -179,7 +233,6 @@
             <p style="color: #64748b;">A showcase of systems engineering, full-stack web applications, and database architectural solutions built during my academic and personal development.</p>
         </div>
 
-        <!-- Project 1: Blue River Zoo Management System -->
         <div class="project-card">
             <div class="project-header">
                 <span class="project-title">Blue River Zoo Management System</span>
@@ -206,7 +259,6 @@
             </div>
         </div>
 
-        <!-- Project 2: MobiVet Services Database System (CMPG 311) -->
         <div class="project-card">
             <div class="project-header">
                 <span class="project-title">MobiVet Mobile Veterinary Database System</span>
@@ -214,14 +266,14 @@
             </div>
 
             <p class="project-desc">
-                An end-to-end relational database solution designed to expand a primary clinic's operations into semi-independent mobile veterinary care units. Built to solve resource allocation conflicts, track fleet logistics, manage patient medical histories, and process service payments[cite: 1, 2].
+                An end-to-end relational database solution designed to expand a primary clinic's operations into semi-independent mobile veterinary care units. Built to solve resource allocation conflicts, track fleet logistics, manage patient medical histories, and process service payments.
             </p>
 
             <div class="project-highlights-title">Key Architectural Highlights:</div>
             <ul class="project-highlights">
-                <li><strong>Conflict Prevention & Business Rules:</strong> Designed data constraints to eliminate double-booking for shared veterinary staff, specialized vehicles, and home appointments[cite: 1, 2].</li>
-                <li><strong>Comprehensive Data Model:</strong> Conceptualized an ERD and Logical Schema covering 16 interrelated entities including Pet Owners, Patients, Appointments, Treatments, Vehicle Checklists, and Financial Payments[cite: 1, 2].</li>
-                <li><strong>Specialized Roles & Integrity Constraints:</strong> Implemented specialized supertype/subtype relationships for Staff roles (Veterinarians, Nurses, Drivers) and bridge entities for multi-service billing and staffing[cite: 1, 2].</li>
+                <li><strong>Conflict Prevention & Business Rules:</strong> Designed data constraints to eliminate double-booking for shared veterinary staff, specialized vehicles, and home appointments.</li>
+                <li><strong>Comprehensive Data Model:</strong> Conceptualized an ERD and Logical Schema covering 16 interrelated entities including Pet Owners, Patients, Appointments, Treatments, Vehicle Checklists, and Financial Payments.</li>
+                <li><strong>Specialized Roles & Integrity Constraints:</strong> Implemented specialized supertype/subtype relationships for Staff roles (Veterinarians, Nurses, Drivers) and bridge entities for multi-service billing and staffing.</li>
             </ul>
 
             <div class="tech-stack">
@@ -231,6 +283,11 @@
                 <span class="tech-badge">Logical Data Modeling</span>
                 <span class="tech-badge">Integrity Constraints</span>
             </div>
+        </div>
+
+        <div class="page-nav">
+            <a href="skills.html" class="btn-nav">&larr; Previous: Skills</a>
+            <a href="index.html" class="btn-nav btn-home">Return to Home &rarr;</a>
         </div>
 
     </div>
