@@ -6,12 +6,13 @@ This repository contains my personal portfolio website developed for the CMPG323
 
 ## Features
 
-- Home
+- Index
 - Resume
+- About
+- Education
+- Experience
 - Skills
 - Projects
-- About Me
-- Contact Page
 
 ## Technologies Used
 
