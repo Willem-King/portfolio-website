@@ -126,10 +126,12 @@
             font-size: 0.95rem;
         }
 
+        /* --- Tech Badges --- */
         .tech-stack {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
         .tech-badge {
@@ -140,6 +142,41 @@
             font-size: 0.85rem;
             font-weight: 600;
             border: 1px solid #e2e8f0;
+        }
+
+        .github-section {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 12px 18px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .github-info {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .github-btn:hover {
+            background-color: #0284c7;
         }
 
         .page-nav {
@@ -175,7 +212,7 @@
         }
 
         @media print {
-            header, .page-nav {
+            header, .page-nav, .github-btn {
                 display: none;
             }
             body {
@@ -208,6 +245,10 @@
             .btn-nav {
                 width: 100%;
                 text-align: center;
+            }
+            .github-section {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -257,6 +298,13 @@
                 <span class="tech-badge">HTML/CSS</span>
                 <span class="tech-badge">Web Facilities</span>
             </div>
+
+            <div class="github-section">
+                <span class="github-info"><strong>Source Code:</strong> This link leads directly to the official GitHub repository for this project.</span>
+                <a href="https://github.com/tsholofelospicegirl17-hub/BlueRiverZoo" target="_blank" class="github-btn">
+                    View GitHub Repository &rarr;
+                </a>
+            </div>
         </div>
 
         <div class="project-card">
@@ -282,6 +330,14 @@
                 <span class="tech-badge">ERD Modeling</span>
                 <span class="tech-badge">Logical Data Modeling</span>
                 <span class="tech-badge">Integrity Constraints</span>
+            </div>
+
+            <div class="github-section">
+                <span class="github-info"><strong>Source Code:</strong> This link leads directly to the official GitHub repository for this database project.</span>
+                <!-- REPLACE LINK BELOW WITH YOUR MOBIVET GITHUB URL -->
+                <a href="https://github.com/your-username/mobivet-system" target="_blank" class="github-btn">
+                    View GitHub Repository &rarr;
+                </a>
             </div>
         </div>
 
