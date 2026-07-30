@@ -25,7 +25,6 @@
             padding: 20px;
         }
 
-        /* --- Top Navigation Bar --- */
         header {
             position: fixed;
             top: 0;
@@ -59,7 +58,6 @@
             color: #38bdf8;
         }
 
-        /* --- Experience Main Card --- */
         .exp-card {
             background-color: #ffffff;
             border-radius: 8px;
@@ -76,7 +74,6 @@
             padding-bottom: 8px;
         }
 
-        /* --- Item Layout --- */
         .item {
             margin-bottom: 25px;
             padding-bottom: 20px;
@@ -124,6 +121,49 @@
             color: #475569;
         }
 
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn-nav {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0284c7;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-nav:hover {
+            background-color: #0369a1;
+        }
+
+        @media print {
+            header, .page-nav {
+                display: none;
+            }
+            body {
+                padding-top: 0;
+                background-color: #ffffff;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .exp-card {
+                box-shadow: none;
+                border: none;
+                padding: 15px 0;
+            }
+        }
+
         @media (max-width: 600px) {
             nav {
                 flex-wrap: wrap;
@@ -140,12 +180,11 @@
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
     <header>
         <nav>
             <a href="index.html">Home</a>
-            <a href="resume.html" class="active">Resume</a>           
-			<a href="about.html">About</a>
+            <a href="resume.html">Resume</a>            
+            <a href="about.html">About</a>
             <a href="education.html">Education</a>
             <a href="experience.html" class="active">Experience</a>
             <a href="skills.html">Skills</a>
@@ -158,7 +197,6 @@
         <div class="exp-card">
             <h1>Practical Experience</h1>
 
-            <!-- Role 1 -->
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Student Software Developer</span>
@@ -171,7 +209,6 @@
                 </ul>
             </div>
 
-            <!-- Role 2 -->
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Student Assistant - C++</span>
@@ -184,7 +221,6 @@
                 </ul>
             </div>
 
-            <!-- Role 3 -->
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Student Assistant - Java</span>
@@ -197,7 +233,6 @@
                 </ul>
             </div>
 
-            <!-- Role 4 -->
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">IT Tutor</span>
@@ -211,7 +246,6 @@
                 </ul>
             </div>
 
-            <!-- Role 5 -->
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Student Assistant - C++</span>
@@ -224,6 +258,11 @@
                 </ul>
             </div>
 
+        </div>
+
+        <div class="page-nav">
+            <a href="education.html" class="btn-nav">&larr; Previous: Education</a>
+            <a href="skills.html" class="btn-nav">Next: Skills &rarr;</a>
         </div>
 
     </div>
