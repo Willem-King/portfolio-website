@@ -11,17 +11,92 @@
             padding: 0;
         }
 
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: #090d16;
+            color: #f1f5f9;
             line-height: 1.6;
-            padding-top: 70px;
+            padding-top: 80px;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.18) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.6) 0px, transparent 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Rocket Dropper Animation Styles */
+        .rocket-container {
+            position: fixed;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            pointer-events: none;
+            animation: rocketDropOff 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .rocket {
+            font-size: 3.5rem;
+            transform: rotate(135deg);
+            filter: drop-shadow(0 0 15px #38bdf8);
+            position: relative;
+        }
+
+        .rocket-flame {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 25px;
+            background: linear-gradient(to top, #ff4500, #ffae00, transparent);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: flameFlicker 0.1s infinite alternate;
+        }
+
+        @keyframes flameFlicker {
+            0% { height: 20px; opacity: 0.8; }
+            100% { height: 32px; opacity: 1; }
+        }
+
+        @keyframes rocketDropOff {
+            0% {
+                top: -150px;
+                opacity: 1;
+            }
+            45% {
+                top: 140px;
+                opacity: 1;
+            }
+            55% {
+                top: 140px;
+                opacity: 1;
+            }
+            100% {
+                top: 110vh;
+                opacity: 0;
+            }
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -31,8 +106,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #1e293b;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
             z-index: 1000;
             animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -40,24 +118,25 @@
         nav {
             display: flex;
             justify-content: center;
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
         nav a {
-            color: #f8fafc;
+            color: #94a3b8;
             text-decoration: none;
-            padding: 18px 24px;
+            padding: 18px 22px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border-bottom: 3px solid transparent;
         }
 
         nav a.active, nav a:hover {
-            background-color: #334155;
+            background-color: rgba(255, 255, 255, 0.03);
             border-bottom: 3px solid #38bdf8;
             color: #38bdf8;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
         }
 
         .actions-bar {
@@ -69,109 +148,163 @@
         }
 
         .print-btn {
-            background-color: #0284c7;
+            background: linear-gradient(135deg, #0284c7, #2563eb);
             color: #ffffff;
             border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 10px 22px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             font-size: 0.95rem;
-            transition: all 0.2s ease;
+            box-shadow: 0 0 15px rgba(2, 132, 199, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .print-btn:hover {
-            background-color: #0369a1;
+            background: linear-gradient(135deg, #0369a1, #1d4ed8);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            box-shadow: 0 0 25px rgba(2, 132, 199, 0.6);
         }
 
         .profile-card {
-            background-color: #ffffff;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             padding: 35px 30px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(124, 58, 237, 0.12);
             margin-bottom: 25px;
             opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: dropCardIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s forwards;
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .profile-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        @keyframes dropCardIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #38bdf8, #a78bfa, #34d399);
         }
 
         .profile-card h1 {
-            font-size: 2.3rem;
-            color: #0f172a;
-            margin-bottom: 5px;
+            font-size: 2.4rem;
+            color: #f8fafc;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
         }
 
         .profile-card p.subtitle {
             font-size: 1.15rem;
-            color: #64748b;
-            margin-bottom: 15px;
-            font-weight: 500;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 18px;
             flex-wrap: wrap;
-            font-size: 0.9rem;
-            color: #475569;
+            font-size: 0.92rem;
+            color: #cbd5e1;
+        }
+
+        .contact-pill {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .contact-info a {
-            color: #0284c7;
+            color: #38bdf8;
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
         .contact-info a:hover {
-            color: #0369a1;
-            text-decoration: underline;
+            color: #a78bfa;
+            text-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
         }
 
         section {
-            background-color: #ffffff;
-            border-radius: 8px;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
             padding: 30px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
             opacity: 0;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         section:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            border-color: rgba(56, 189, 248, 0.3);
         }
 
-        /* Staggered section animations */
-        section#summary { animation-delay: 0.2s; }
-        section#education { animation-delay: 0.3s; }
-        section#experience { animation-delay: 0.4s; }
-        section#skills { animation-delay: 0.5s; }
-        section#projects { animation-delay: 0.6s; }
+        section#summary { animation-delay: 1.4s; }
+        section#education { animation-delay: 1.5s; }
+        section#experience { animation-delay: 1.6s; }
+        section#skills { animation-delay: 1.7s; }
+        section#projects { animation-delay: 1.8s; }
 
         section h2 {
             font-size: 1.3rem;
-            color: #0f172a;
-            border-bottom: 2px solid #e2e8f0;
+            color: #f8fafc;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.3);
             padding-bottom: 8px;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-container {
+            border-left: 2px solid rgba(56, 189, 248, 0.3);
+            padding-left: 20px;
+            margin-left: 5px;
         }
 
         .item {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            position: relative;
             transition: transform 0.2s ease;
+        }
+
+        .timeline-container .item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #38bdf8;
+            box-shadow: 0 0 10px #38bdf8;
         }
 
         .item:hover {
@@ -192,19 +325,24 @@
         .item-title {
             font-size: 1.1rem;
             font-weight: 700;
-            color: #1e293b;
+            color: #f8fafc;
         }
 
         .item-date {
             font-size: 0.85rem;
-            color: #64748b;
+            color: #38bdf8;
             font-weight: 600;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         .item-sub {
             font-style: italic;
-            color: #475569;
+            color: #a78bfa;
             margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
         ul.skills-list {
@@ -215,26 +353,27 @@
         }
 
         ul.skills-list li {
-            background-color: #f1f5f9;
-            color: #334155;
-            padding: 6px 14px;
+            background-color: rgba(15, 23, 42, 0.6);
+            color: #e2e8f0;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
         }
 
         ul.skills-list li:hover {
-            background-color: #38bdf8;
-            color: #0f172a;
+            background-color: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
             border-color: #38bdf8;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(56, 189, 248, 0.25);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
         }
 
         ul.bullet-list {
             padding-left: 20px;
+            color: #cbd5e1;
         }
 
         ul.bullet-list li {
@@ -247,26 +386,27 @@
             align-items: center;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.9s forwards;
         }
 
         .btn-nav {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #0284c7;
+            background: linear-gradient(135deg, #0284c7, #2563eb);
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
-            border-radius: 5px;
-            transition: all 0.2s ease;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(2, 132, 199, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .btn-nav:hover {
-            background-color: #0369a1;
-            transform: translateX(3px);
-            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+            background: linear-gradient(135deg, #0369a1, #1d4ed8);
+            transform: translateY(-2px) translateX(3px);
+            box-shadow: 0 0 25px rgba(2, 132, 199, 0.6);
         }
 
         @keyframes slideDown {
@@ -286,25 +426,49 @@
         }
 
         @media print {
-            header, .actions-bar, .page-nav {
-                display: none;
+            .rocket-container, header, .actions-bar, .page-nav {
+                display: none !important;
             }
             body {
                 padding-top: 0;
                 background-color: #ffffff;
+                color: #000000;
             }
             .container {
                 max-width: 100%;
                 padding: 0;
             }
             section, .profile-card {
-                box-shadow: none;
-                border: none;
-                padding: 15px 0;
-                margin-bottom: 10px;
+                background: #ffffff !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 15px 0 !important;
+                margin-bottom: 10px !important;
                 animation: none !important;
                 opacity: 1 !important;
                 transform: none !important;
+            }
+            .profile-card h1, section h2, .item-title {
+                color: #000000 !important;
+            }
+            .profile-card p.subtitle, .item-sub, .item-date, .contact-info a {
+                color: #333333 !important;
+            }
+            .bullet-list {
+                color: #000000 !important;
+            }
+            .skills-list li {
+                background: #f1f5f9 !important;
+                color: #000000 !important;
+                border: 1px solid #ccc !important;
+            }
+            .timeline-container {
+                border-left: 2px solid #ccc !important;
+            }
+            .timeline-container .item::before {
+                background-color: #000000 !important;
+                box-shadow: none !important;
             }
         }
 
@@ -318,11 +482,19 @@
             }
             .item-header {
                 flex-direction: column;
+                gap: 5px;
             }
         }
     </style>
 </head>
 <body>
+
+    <div class="rocket-container">
+        <div class="rocket">
+            🚀
+            <div class="rocket-flame"></div>
+        </div>
+    </div>
 
     <header>
         <nav>
@@ -332,7 +504,7 @@
             <a href="education.html">Education</a>
             <a href="experience.html">Experience</a>
             <a href="skills.html">Skills</a>
-            <a href="projects.html">Projects</a>            
+            <a href="projects.html">Projects</a>        
         </nav>
     </header>
 
@@ -346,102 +518,104 @@
             <h1>Willem King</h1>
             <p class="subtitle">IT Student & Student Software Developer</p>
             <div class="contact-info">
-                <span>📧 kingwillem883@gmail.com</span>
-                <span>📞 +27 84 514 6286</span>
-                <span>📍 Gauteng, South Africa</span>
-                <span>🔗 <a href="https://www.linkedin.com/in/wj-king-602196363/?isSelfProfile=true" target="_blank">LinkedIn</a></span>
-                <span>💻 <a href="https://github.com/Willem-King" target="_blank">GitHub</a></span>
+                <span class="contact-pill">📧 kingwillem883@gmail.com</span>
+                <span class="contact-pill">📞 +27 84 514 6286</span>
+                <span class="contact-pill">📍 Gauteng, South Africa</span>
+                <span class="contact-pill">🔗 <a href="https://www.linkedin.com/in/wj-king-602196363/?isSelfProfile=true" target="_blank">LinkedIn</a></span>
+                <span class="contact-pill">💻 <a href="https://github.com/Willem-King" target="_blank">GitHub</a></span>
+                <span class="contact-pill">📄 <a href="WillemKing_CV.pdf" target="_blank">Click here for my CV</a></span>
             </div>
         </div>
 
         <section id="summary">
-            <h2>Professional Summary</h2>
-            <p>I am a passionate Information Technology student at North-West University with a strong interest in software development, web technologies and solving real-world problems through technology.
-
-            Throughout my studies I have gained experience in Java, C++, C#, SQL, CSS and Python while completing various academic and personal projects.
-
-            I thrive in team environments, enjoy learning new technologies and constantly challenge myself to improve. I am currently seeking internship and graduate opportunities where I can grow as a developer and make a meaningful impact.</p>
+            <h2>📄 Professional Summary</h2>
+            <p style="color: #cbd5e1;">I am a passionate Information Technology student at North-West University with a strong interest in software development, web technologies and solving real-world problems through technology.</p>
+            <p style="color: #cbd5e1; margin-top: 10px;">Throughout my studies I have gained experience in Java, C++, C#, SQL, CSS and Python while completing various academic and personal projects.</p>
+            <p style="color: #cbd5e1; margin-top: 10px;">I thrive in team environments, enjoy learning new technologies and constantly challenge myself to improve. I am currently seeking internship and graduate opportunities where I can grow as a developer and make a meaningful impact.</p>
         </section>
 
         <section id="education">
-            <h2>Education</h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">BSc in Information Technology</span>
-                    <span class="item-date">2024 – Present</span>
+            <h2>🎓 Education</h2>
+            <div class="timeline-container">
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">BSc in Information Technology</span>
+                        <span class="item-date">2024 – Present</span>
+                    </div>
+                    <div class="item-sub">North-West University (NWU) — 3rd Year</div>
+                    <ul class="bullet-list">
+                        <li>Key Modules (3rd Year): Decision Support Systems (CMPG 312), Artificial Intelligence, Databases, and Software Engineering.</li>
+                        <li>Core Focus: Operations Research, Linear Programming & Optimization, Advanced SQL & Relational Database Design.</li>
+                    </ul>
                 </div>
-                <div class="item-sub">North-West University (NWU) — 3rd Year</div>
-                <ul class="bullet-list">
-                    <li>Key Modules (3rd Year): Decision Support Systems (CMPG 312), Artificial Intelligence, Databases, and Software Engineering.</li>
-                    <li>Core Focus: Operations Research, Linear Programming & Optimization, Advanced SQL & Relational Database Design.</li>
-                </ul>
             </div>
         </section>
 
         <section id="experience">
-            <h2>Experience</h2>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Student Software Developer</span>
-                    <span class="item-date">Feb 2024 – Present</span>
+            <h2>💼 Experience</h2>
+            <div class="timeline-container">
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Student Software Developer</span>
+                        <span class="item-date">Feb 2024 – Present</span>
+                    </div>
+                    <div class="item-sub">On-site</div>
+                    <ul class="bullet-list">
+                        <li>Developing desktop and web applications using Java, C++, C#, and Python.</li>
+                        <li>Designing and managing databases using SQL.</li>
+                    </ul>
                 </div>
-                <div class="item-sub">On-site</div>
-                <ul class="bullet-list">
-                    <li>Developing desktop and web applications using Java, C++, C#, and Python.</li>
-                    <li>Designing and managing databases using SQL.</li>
-                </ul>
-            </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Student Assistant - C++</span>
-                    <span class="item-date">Jul 2025 – Dec 2025</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Student Assistant - C++</span>
+                        <span class="item-date">Jul 2025 – Dec 2025</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Supported students during lectures and practical sessions.</li>
+                        <li>Assisted with marking of assignments and assessments.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Supported students during lectures and practical sessions.</li>
-                    <li>Assisted with marking of assignments and assessments.</li>
-                </ul>
-            </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Student Assistant - Java</span>
-                    <span class="item-date">Feb 2026 – Jun 2026</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Student Assistant - Java</span>
+                        <span class="item-date">Feb 2026 – Jun 2026</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Assisting students during lectures and practical sessions.</li>
+                        <li>Marking assignments and providing constructive feedback.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Assisting students during lectures and practical sessions.</li>
-                    <li>Marking assignments and providing constructive feedback.</li>
-                </ul>
-            </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">IT Tutor</span>
-                    <span class="item-date">Apr 2026 – Present</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">IT Tutor</span>
+                        <span class="item-date">Apr 2026 – Present</span>
+                    </div>
+                    <div class="item-sub">Three Rivers Learning Academy · Part-time (Three Rivers, Gauteng, South Africa)</div>
+                    <ul class="bullet-list">
+                        <li>Tutoring grade 10 - 12 IT students in programming and problem-solving.</li>
+                        <li>Preparing students for tests and examinations.</li>
+                        <li>Guiding students through debugging techniques and core IT concepts.</li>
+                    </ul>
                 </div>
-                <div class="item-sub">Three Rivers Learning Academy · Part-time (Three Rivers, Gauteng, South Africa)</div>
-                <ul class="bullet-list">
-                    <li>Tutoring grade 10 - 12 IT students in programming and problem-solving.</li>
-                    <li>Preparing students for tests and examinations.</li>
-                    <li>Guiding students through debugging techniques and core IT concepts.</li>
-                </ul>
-            </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Student Assistant - C++</span>
-                    <span class="item-date">Jul 2026 – Present</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Student Assistant - C++</span>
+                        <span class="item-date">Jul 2026 – Present</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Assisting students during lectures and practical sessions.</li>
+                        <li>Marking assignments and providing constructive feedback.</li>
+                    </ul>
                 </div>
-                <ul class="bullet-list">
-                    <li>Assisting students during lectures and practical sessions.</li>
-                    <li>Marking assignments and providing constructive feedback.</li>
-                </ul>
             </div>
         </section>
 
         <section id="skills">
-            <h2>Technical Skills</h2>
+            <h2>🛠️ Technical Skills</h2>
             <ul class="skills-list">
                 <li>C++</li>
                 <li>Java</li>
@@ -455,22 +629,21 @@
         </section>
 
         <section id="projects">
-            <h2>Featured Projects</h2>
-
+            <h2>🚀 Featured Projects</h2>
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Blue River Zoo Management System</span>
                     <span class="item-date">2026</span>
                 </div>
-                <p>Developed a comprehensive management system supporting multiple user roles (Visitor, Staff, and Admin). Features include visitor ticket management, staff administrative controls, and system-wide data management with secure access levels.</p>
+                <p style="color: #cbd5e1;">Developed a comprehensive management system supporting multiple user roles (Visitor, Staff, and Admin). Features include visitor ticket management, staff administrative controls, and system-wide data management with secure access levels.</p>
             </div>
 
-            <div class="item">
+            <div class="item" style="margin-top: 18px;">
                 <div class="item-header">
                     <span class="item-title">Logistics Optimization & Distribution Model</span>
                     <span class="item-date">2026</span>
                 </div>
-                <p>Formulated and implemented a Mixed-Integer Linear Programming (MILP) model to calculate optimal distribution routes and minimize transportation costs across key hubs.</p>
+                <p style="color: #cbd5e1;">Formulated and implemented a Mixed-Integer Linear Programming (MILP) model to calculate optimal distribution routes and minimize transportation costs across key hubs.</p>
             </div>
         </section>
 
