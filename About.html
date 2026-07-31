@@ -11,14 +11,97 @@
             padding: 0;
         }
 
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e1b4b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: #030712;
+            color: #f1f5f9;
             line-height: 1.6;
             padding-top: 70px;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
+
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(3, 7, 18, 0.95) 0%, #030712 100%);
+        }
+
+        .starfield::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 10px 20px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 100px 250px, #e0e7ff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 200px 80px, #38bdf8, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 300px 400px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 450px 150px, #a5b4fc, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 600px 300px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 750px 90px, #38bdf8, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 900px 500px, #e0e7ff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 800px 600px;
+            opacity: 0.7;
+            animation: twinkle 6s ease-in-out infinite alternate;
+        }
+
+        .tech-shower {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        .falling-key {
+            position: absolute;
+            top: -60px;
+            color: #38bdf8;
+            font-size: 0.85rem;
+            font-weight: bold;
+            opacity: 0;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+            animation: fallKey 6s linear infinite;
+        }
+
+        .falling-key:nth-child(1) { left: 8%; animation-duration: 5.2s; animation-delay: 0s; }
+        .falling-key:nth-child(2) { left: 22%; animation-duration: 7s; animation-delay: 1.8s; color: #818cf8; }
+        .falling-key:nth-child(3) { left: 38%; animation-duration: 4.8s; animation-delay: 0.5s; }
+        .falling-key:nth-child(4) { left: 52%; animation-duration: 6.5s; animation-delay: 2.3s; color: #a78bfa; }
+        .falling-key:nth-child(5) { left: 68%; animation-duration: 5.5s; animation-delay: 0.2s; }
+        .falling-key:nth-child(6) { left: 82%; animation-duration: 7.2s; animation-delay: 3.1s; color: #38bdf8; }
+        .falling-key:nth-child(7) { left: 94%; animation-duration: 5.8s; animation-delay: 1.2s; }
 
         .container {
             max-width: 900px;
@@ -31,8 +114,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #1e293b;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             z-index: 1000;
             animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -45,7 +131,7 @@
         }
 
         nav a {
-            color: #f8fafc;
+            color: #94a3b8;
             text-decoration: none;
             padding: 18px 24px;
             font-weight: 600;
@@ -55,39 +141,87 @@
         }
 
         nav a.active, nav a:hover {
-            background-color: #334155;
+            background-color: rgba(255, 255, 255, 0.03);
             border-bottom: 3px solid #38bdf8;
             color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
         }
 
         .about-card {
-            background-color: #ffffff;
-            border-radius: 8px;
+            background-color: rgba(15, 23, 42, 0.78);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 16px;
             padding: 35px 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.12);
             margin-bottom: 25px;
             opacity: 0;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .about-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.22);
         }
 
         .about-card h1 {
             font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
+            color: #f8fafc;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .about-card p {
-            color: #475569;
+            color: #cbd5e1;
             font-size: 1.05rem;
             margin-bottom: 18px;
+        }
+
+        .about-card p strong {
+            color: #38bdf8;
+        }
+
+        .about-card p em {
+            color: #a78bfa;
+            font-style: normal;
+        }
+
+        .tech-keys-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0 22px 0;
+            padding: 12px 16px;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 10px;
+        }
+
+        .key-cap {
+            display: inline-block;
+            background: linear-gradient(180deg, #1e293b, #0f172a);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 3px solid #0284c7;
+            color: #38bdf8;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            transition: all 0.2s ease;
+        }
+
+        .key-cap:hover {
+            transform: translateY(-2px);
+            border-bottom-color: #38bdf8;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(56, 189, 248, 0.4);
         }
 
         .highlights-grid {
@@ -98,13 +232,16 @@
         }
 
         .highlight-box {
-            background-color: #f8fafc;
-            border-left: 4px solid #0284c7;
+            background-color: rgba(30, 41, 59, 0.5);
+            border-left: 4px solid #6366f1;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-right: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             padding: 20px;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 10px 10px 0;
             opacity: 0;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease, background-color 0.3s ease;
         }
 
         .highlight-box:nth-child(1) { animation-delay: 0.3s; }
@@ -113,18 +250,19 @@
 
         .highlight-box:hover {
             transform: translateY(-4px) translateX(2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 15px rgba(56, 189, 248, 0.2);
             border-left-color: #38bdf8;
+            background-color: rgba(30, 41, 59, 0.85);
         }
 
         .highlight-box h3 {
-            color: #0f172a;
+            color: #f8fafc;
             font-size: 1.1rem;
             margin-bottom: 8px;
         }
 
         .highlight-box p {
-            color: #64748b;
+            color: #94a3b8;
             font-size: 0.95rem;
             margin-bottom: 0;
         }
@@ -135,7 +273,7 @@
             align-items: center;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             opacity: 0;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
         }
@@ -143,18 +281,42 @@
         .btn-nav {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #0284c7;
+            background-color: #4f46e5;
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
-            border-radius: 5px;
-            transition: all 0.2s ease;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 10px rgba(79, 70, 229, 0.3);
         }
 
         .btn-nav:hover {
-            background-color: #0369a1;
+            background-color: #0284c7;
             transform: translateX(3px);
-            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.5);
+        }
+
+        /* --- KEYFRAME ANIMATIONS --- */
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        @keyframes fallKey {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.9;
+            }
+            85% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(115vh);
+                opacity: 0;
+            }
         }
 
         @keyframes slideDown {
@@ -174,24 +336,32 @@
         }
 
         @media print {
-            header, .page-nav {
-                display: none;
+            header, .page-nav, .starfield, .tech-shower, .tech-keys-bar {
+                display: none !important;
             }
             body {
                 padding-top: 0;
                 background-color: #ffffff;
+                color: #000000;
             }
             .container {
                 max-width: 100%;
                 padding: 0;
             }
             .about-card, .highlight-box {
+                background-color: #ffffff;
                 box-shadow: none;
                 border: none;
                 padding: 15px 0;
                 animation: none !important;
                 opacity: 1 !important;
                 transform: none !important;
+            }
+            .about-card h1, .highlight-box h3 {
+                color: #000000;
+            }
+            .about-card p, .highlight-box p {
+                color: #333333;
             }
         }
 
@@ -208,6 +378,18 @@
 </head>
 <body>
 
+    <div class="starfield"></div>
+
+    <div class="tech-shower">
+        <div class="falling-key">[CTRL] 1 0 1</div>
+        <div class="falling-key">&lt;/&gt; { C++ }</div>
+        <div class="falling-key">[ALT] SELECT *</div>
+        <div class="falling-key">[ESC] 0 1 0 1</div>
+        <div class="falling-key">java.util.*</div>
+        <div class="falling-key">[SHIFT] MILP</div>
+        <div class="falling-key">0 1 1 0 [ENTER]</div>
+    </div>
+
     <header>
         <nav>
             <a href="index.html">Home</a>
@@ -223,8 +405,18 @@
     <div class="container">
 
         <div class="about-card">
-            <h1>About Me</h1>
+            <h1>⌨️ About Me</h1>
             
+            <div class="tech-keys-bar">
+                <span class="key-cap">C++</span>
+                <span class="key-cap">JAVA</span>
+                <span class="key-cap">SQL</span>
+                <span class="key-cap">PYTHON</span>
+                <span class="key-cap">C#</span>
+                <span class="key-cap">MILP</span>
+                <span class="key-cap">SYSTEMS</span>
+            </div>
+
             <p>
                 I am a driven <strong>3rd-year Bachelor of Science in Information Technology student at North-West University (NWU)</strong> with a strong passion for software engineering, relational database design, and decision support systems.
             </p>
